@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Test - Tien</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="nav-container">
+        <header>
+            <a href="index.html" class="logo">Healthy Lifestyle</a>
+            <nav>
+                <ul>
+                    <li><a href="/" class="fa fa-facebook fa-2x"></a></li>
+                    <li><a href="/" class="fa fa-twitter fa-2x"></a></li>
+                    <li><a href="/" class="fa fa-instagram fa-2x"></a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="intro">
+        <div class="content left">
+            <h1 class="stagger1">Text Header</h1>
+            <div class="intro-header stagger1">
+                <p>Text Subheader</p>
+                <button class="intro-button">Start here</button>
+            </div>
+        </div>
+        <img src="pictures/Aurora_Render.png" class="right"/>
+    </div>
+
+    <section class="products" id="products">
+        <ul class="icon-holder">
+            <li class="transition2">
+                <img src="pictures/Aurora_Render.png" alt="treadmill" class="icon-container">
+            </li>
+            <li class="transition2">
+                <img src="pictures/Bike_Render.png" alt="bike" class="icon-container">
+            </li>
+            <li class="transition2">
+                <img src="pictures/eating-healthy.jpg" alt="eating healthy" class="icon-container">
+            </li>
+            <li class="transition2">
+                <img src="pictures/Untitled design.png" alt="word of wisdom" class="icon-container">
+            </li>
+        </ul>
+    </section>
+
+    <section class="featured">
+        <div class="inner transiton2">
+            <p class="subtitle">Why Word of Wisdom?</p>
+            <p class="featured-desc">The Word of Wisdom is a law of health revealed by the Lord for our physical and
+                spiritual benefit. </br> The Lord tells us which foods are good for us to eat and which substances are
+                not good for our bodies. </br> He promises spiritual and physical blessings for obeying the Word of Wisdom.
+            </p>
+            <a href="https://www.churchofjesuschrist.org/study/manual/true-to-the-faith/word-of-wisdom?lang=eng"
+            target="_blank" class="intro-button">Read More</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="slider">
+            <div class="slides">
+                <!-- buttons -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="pictures/Aurora_Render.png" alt="" class="">
+                </div>
+                <div class="slide">
+                    <img src="pictures/Bike_Render.png" alt="" class="">
+                </div>
+                <div class="slide">
+                    <img src="pictures/eating-healthy.jpg" alt="" class="">
+                </div>
+                <div class="slide">
+                    <img src="pictures/Untitled design.png" alt="" class="">
+                </div>
+                <!-- Automatic Navigation -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+            </div>
+            <!-- Manual Navigation -->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var counter = 1;
+            setInterval(function(){
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if(counter > 4){
+                    counter = 1; 
+                }
+            }, 3000)
+        </script>
+    </section>
+
+</body>
+
+</html>
