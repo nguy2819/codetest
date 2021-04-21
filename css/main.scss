@@ -78,9 +78,39 @@ header {
   display: block; //or grid
   text-align: center;
   padding: 4em;
+  display: grid;
 }
 
-.intro-header {
+@media only screen and (min-width: 1000px) {
+    .intro {
+        height: 90vh;
+        grid-template-columns: 66% auto;
+        padding: 0;
+
+        .content {
+            background: rgb(27, 27, 31);
+            // padding: 6em 8em 6em 4em;
+            text-align: left;
+
+            .intro-header {
+                font-size: 3em;
+                line-height: 1.2em;
+            }
+        }
+    }
+    .intro-subheader {
+        margin: unset
+    }
+
+    .img-header {
+        display: unset;
+        margin-left: -50%;
+        margin-top: 15%;
+        width: 100%;
+    }
+}
+
+.intro-subheader {
   display: flex;
   margin: 0 auto;
   width: 200px;
@@ -114,6 +144,21 @@ header {
   }
 }
 
+.img-header {
+    width: 100%
+}
+
+@media only screen and (min-width: 800px){
+    .left {
+        display: grid;
+        place-content: center;
+    }
+
+    .img-header {
+        width: 100%;
+    }
+}
+
 section {
   padding: 4em 2em;
   text-align: center;
@@ -124,13 +169,13 @@ section {
 }
 
 // ***GRID*** 
-// .icon-holder li {
+// .products-holder li {
 //     background: white;
 //     padding: 2em;
 //     border-radius: 1em;
 //     margin-bottom: -1.5em;
   
-//     .icon-container {
+//     .product-container {
 //       height: 100px;
 //       width: auto;
 //       display: grid;
@@ -140,19 +185,19 @@ section {
 // }
   
 // ***FLEX***
-.icon-container {
+.product-container {
   height: auto;
   max-height: 19em;
   width: 11em;
 }
 
-.icon-holder {
+.products-holder {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.icon-holder li {
+.products-holder li {
   background: white;
   border-radius: 1em;
   width: 20em;
@@ -164,19 +209,43 @@ section {
 }
 
 @media (min-width: 600px) {
-  .icon-holder {
+  .products-holder {
     flex-direction: row;
     justify-content: space-around;
   }
 
-  .icon-holder li {
+  .products-holder li {
     margin: 0.5em;
   }
 
-  .icon-container {
+  .product-container {
     height: 11em;
     width: auto;
   }
+}
+
+@supports (animation-timeline: works) {
+    .products-holder {
+        animation: 1s linear forwards flip-card;
+        animation-timeline: flip-timeline;
+        transform: rotateX(-120deg);
+        transform-style: preserve-3d;
+    }
+
+    @scroll-timeline flip-timeline {
+        time-range: 3s;
+    }
+
+    @keyframes flip-card {
+        from {
+            opacity: 0;
+            transform: rotateX(-120deg);
+        }
+        to {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+    }
 }
 
 .skill-title {

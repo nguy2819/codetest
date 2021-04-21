@@ -79,9 +79,37 @@ header ul a:hover {
   display: block;
   text-align: center;
   padding: 4em;
+  display: -ms-grid;
+  display: grid;
 }
 
-.intro-header {
+@media only screen and (min-width: 1000px) {
+  .intro {
+    height: 90vh;
+    -ms-grid-columns: 66% auto;
+        grid-template-columns: 66% auto;
+    padding: 0;
+  }
+  .intro .content {
+    background: #1b1b1f;
+    text-align: left;
+  }
+  .intro .content .intro-header {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+  .intro-subheader {
+    margin: unset;
+  }
+  .img-header {
+    display: unset;
+    margin-left: -50%;
+    margin-top: 15%;
+    width: 100%;
+  }
+}
+
+.intro-subheader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,7 +118,7 @@ header ul a:hover {
   color: white;
 }
 
-.intro-header span {
+.intro-subheader span {
   margin-top: 1em;
   margin-right: 0.5em;
 }
@@ -119,6 +147,21 @@ header ul a:hover {
           box-shadow: 0 12px 16px 0 #8b8d8c, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+.img-header {
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  .left {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+  }
+  .img-header {
+    width: 100%;
+  }
+}
+
 section {
   padding: 4em 2em;
   text-align: center;
@@ -128,13 +171,13 @@ section {
   background: greenyellow;
 }
 
-.icon-container {
+.product-container {
   height: auto;
   max-height: 19em;
   width: 11em;
 }
 
-.icon-holder {
+.products-holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,7 +189,7 @@ section {
       flex-wrap: wrap;
 }
 
-.icon-holder li {
+.products-holder li {
   background: white;
   border-radius: 1em;
   width: 20em;
@@ -164,7 +207,7 @@ section {
 }
 
 @media (min-width: 600px) {
-  .icon-holder {
+  .products-holder {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -172,12 +215,51 @@ section {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  .icon-holder li {
+  .products-holder li {
     margin: 0.5em;
   }
-  .icon-container {
+  .product-container {
     height: 11em;
     width: auto;
+  }
+}
+
+@supports (animation-timeline: works) {
+  .products-holder {
+    -webkit-animation: 1s linear forwards flip-card;
+            animation: 1s linear forwards flip-card;
+    animation-timeline: flip-timeline;
+    -webkit-transform: rotateX(-120deg);
+            transform: rotateX(-120deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  @scroll-timeline flip-timeline {
+    time-range: 3s;
+  }
+  @-webkit-keyframes flip-card {
+    from {
+      opacity: 0;
+      -webkit-transform: rotateX(-120deg);
+              transform: rotateX(-120deg);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+    }
+  }
+  @keyframes flip-card {
+    from {
+      opacity: 0;
+      -webkit-transform: rotateX(-120deg);
+              transform: rotateX(-120deg);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+    }
   }
 }
 
