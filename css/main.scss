@@ -31,24 +31,30 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
 
-  ul {
-    list-style-type: none;
-    padding: 0;
+.menu-container {
+    margin-top: 2em;
+    opacity: 0;
+    transform: translateY(-30px);
 
-    li a {
-      text-decoration: none;
-      color: black;
-      display: block;
-      padding: 0.8em 2em 0.8em 1em;
-      font-size: 0.9em;
+    ul {
+        list-style-type: none;
+        padding: 0;
 
-      &:hover {
-        background: rgb(240, 236, 240);
-        border-radius: 0.2em;
-      }
+        li a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 0.8em 2em 0.8em 1em;
+        font-size: 0.9em;
+
+        &:hover {
+            background: rgb(240, 236, 240);
+            border-radius: 0.2em;
+        }
+        }
     }
-  }
 }
 
 .menu-container,

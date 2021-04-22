@@ -42,12 +42,19 @@ body {
       flex-wrap: wrap;
 }
 
-.menu ul {
+.menu-container {
+  margin-top: 2em;
+  opacity: 0;
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
+}
+
+.menu-container ul {
   list-style-type: none;
   padding: 0;
 }
 
-.menu ul li a {
+.menu-container ul li a {
   text-decoration: none;
   color: black;
   display: block;
@@ -55,7 +62,7 @@ body {
   font-size: 0.9em;
 }
 
-.menu ul li a:hover {
+.menu-container ul li a:hover {
   background: #f0ecf0;
   border-radius: 0.2em;
 }
