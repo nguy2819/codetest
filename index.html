@@ -89,26 +89,35 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous"></script>
 
     <script>
         const button = document.querySelector('.bars-button');
         const overlay = document.querySelector('.overlay');
         const exit = document.querySelector('.exit');
 
-        var tl = gsap.timeline({defaults:{duration: 1, ease: Back.easeOut.config(2)}})
-
+        var tl = gsap.timeline({ defaults: { duration: 1, ease: Back.easeOut.config(2) } })
+        let isOpen = false;
         tl.paused(true);
-        tl.to('.overlay', {clipPath: 'circle(100%)'})
-        tl.to('.menu-container', {opacity: 1, y: '30px', stagger: 0.1}, "-=1")
+        tl.to('.overlay', { clipPath: 'circle(100%)' })
+        tl.to('.menu-container', { opacity: 1, y: '30px', stagger: 0.1 }, "-=1")
 
         button.addEventListener('click', () => {
-            tl.play();
+            if (isOpen) {
+                tl.reverse(.7);
+                isOpen = false;
+            }
+            else {
+                tl.play();
+                isOpen = true;
+            }
         })
         exit.addEventListener('click', () => {
             tl.reverse(.7);
+            isOpen = false;
         })
-
     </script>
 
     <div class="intro">
@@ -117,12 +126,12 @@
             <div class="intro-subheader stagger1">
                 <p>Text Subheader</p>
             </div>
-            <button class="intro-button">Start here</button>
+            <button class="intro-button stagger1">Start here</button>
         </div>
-        <img src="pictures/Aurora_Render.png" class="right img-header"/>
+        <img src="pictures/Aurora_Render.png" class="right img-header" />
     </div>
 
-    <section class="products" id="products">
+    <section class="products">
         <ul class="products-holder">
             <li class="transition2">
                 <img src="pictures/Aurora_Render.png" alt="treadmill" class="product-container">
@@ -140,19 +149,20 @@
     </section>
 
     <section class="featured">
-        <div class="inner transiton2">
+        <div class="inner transition2">
             <p class="subtitle">Why Word of Wisdom?</p>
             <p class="featured-desc">The Word of Wisdom is a law of health revealed by the Lord for our physical and
                 spiritual benefit. </br> The Lord tells us which foods are good for us to eat and which substances are
-                not good for our bodies. </br> He promises spiritual and physical blessings for obeying the Word of Wisdom.
+                not good for our bodies. </br> He promises spiritual and physical blessings for obeying the Word of
+                Wisdom.
             </p>
             <a href="https://www.churchofjesuschrist.org/study/manual/true-to-the-faith/word-of-wisdom?lang=eng"
-            target="_blank" class="intro-button">Read More</a>
+                target="_blank" class="intro-button">Read More</a>
         </div>
     </section>
 
     <section>
-        <div class="slider">
+        <div class="slider transition2">
             <div class="slides">
                 <!-- buttons -->
                 <input type="radio" name="radio-btn" id="radio1">
@@ -191,15 +201,56 @@
 
         <script type="text/javascript">
             var counter = 1;
-            setInterval(function(){
+            setInterval(function () {
                 document.getElementById('radio' + counter).checked = true;
                 counter++;
-                if(counter > 4){
-                    counter = 1; 
+                if (counter > 4) {
+                    counter = 1;
                 }
             }, 3000)
         </script>
     </section>
+
+    <!-- Add GSAP Scroll Trigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"
+        integrity="sha512-Q+G390ZU2qKo+e4q+kVcJknwfGjKJOdyu5mVMcR95NqL6XaF4lY4nsSvIVB3NDP54ACsS9rqhE1DVqgpApl//Q=="
+        crossorigin="anonymous"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        var tl1 = gsap.timeline();
+
+        tl1.from('.intro', {
+            y: '-30%',
+            opacity: 0,
+            duration: 2,
+            ease: Power4.easeOut
+        })
+        tl1.from('.stagger1', {
+            opacity: 0,
+            y: -50,
+            stagger: .3,
+            duration: 2,
+            ease: Power4.easeOut
+        }, "-=1.5")
+        tl1.from('.img-header', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: Power4.easeOut
+        }, "-=2")
+
+        gsap.from('.transition2', {
+            scrollTrigger: {
+                trigger: '.transition2',
+                start: "top 75%",
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: .3
+        })
+    </script>
 
 </body>
 

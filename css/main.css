@@ -21,6 +21,7 @@ body {
   overflow-x: hidden;
   padding: 2em;
   right: 0;
+  z-index: 10;
 }
 
 .overlay .exit {
@@ -196,7 +197,7 @@ header ul a:hover {
   .img-header {
     display: unset;
     margin-left: -50%;
-    margin-top: 15%;
+    margin-top: 35%;
     width: 100%;
   }
 }
@@ -349,7 +350,7 @@ section {
 @media (min-width: 600px) {
   .slider {
     width: auto;
-    height: 350px;
+    height: 360px;
     overflow: hidden;
   }
 }
