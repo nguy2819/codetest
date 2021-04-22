@@ -15,6 +15,7 @@
             <a href="index.html" class="logo">Healthy Lifestyle</a>
             <nav>
                 <ul>
+                    <li><button class="fa fa-bars fa-2x bars-button"></button></li>
                     <li><a href="/" class="fa fa-facebook fa-2x"></a></li>
                     <li><a href="/" class="fa fa-twitter fa-2x"></a></li>
                     <li><a href="/" class="fa fa-instagram fa-2x"></a></li>
@@ -22,6 +23,90 @@
             </nav>
         </header>
     </div>
+
+    <div class="overlay">
+        <button class="exit fa fa-times"></button>
+
+        <div class="menu">
+            <div class="menu-container">
+                <p class="category">Products</p>
+
+                <ul>
+                    <li><a href="#">Product 1</a></li>
+                    <li><a href="#">Product 2</a></li>
+                    <li><a href="#">Product 3</a></li>
+                    <li><a href="#">Product 4</a></li>
+                    <li><a href="#">Product 5</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-container">
+                <p class="category">Reviews</p>
+
+                <ul>
+                    <li><a href="#">Review 1</a></li>
+                    <li><a href="#">Review 2</a></li>
+                    <li><a href="#">Review 3</a></li>
+                    <li><a href="#">Review 4</a></li>
+                    <li><a href="#">Review 5</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-container">
+                <p class="category">Financing</p>
+
+                <ul>
+                    <li><a href="#">Financing 1</a></li>
+                    <li><a href="#">Financing 2</a></li>
+                    <li><a href="#">Financing 3</a></li>
+                    <li><a href="#">Financing 4</a></li>
+                    <li><a href="#">Financing 5</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-container">
+                <p class="category">Company</p>
+
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">About Us 2</a></li>
+                    <li><a href="#">About Us 3</a></li>
+                    <li><a href="#">About Us 4</a></li>
+                    <li><a href="#">About Us 5</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-container">
+                <p class="category">Category</p>
+
+                <ul>
+                    <li><a href="#">Category 1</a></li>
+                    <li><a href="#">Category 2</a></li>
+                    <li><a href="#">Category 3</a></li>
+                    <li><a href="#">Category 4</a></li>
+                    <li><a href="#">Category 5</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+
+    <script>
+        const button = document.querySelector('.bars-button');
+        const overlay = document.querySelector('.overlay');
+        const exit = document.querySelector('.exit');
+
+        var tl = gsap.timeline({defaults:{duration: 1, ease: Back.easeOut.config(2)}})
+
+        tl.paused(true);
+        tl.to('.overlay', {clipPath: 'circle(100%)'})
+        tl.to('.menu-container', {opacity: 1, y: '30px', stagger: 0.1}, "-=1")
+
+        button.addEventListener('click', () => {
+            tl.play();
+        })
+
+    </script>
 
     <div class="intro">
         <div class="content left">

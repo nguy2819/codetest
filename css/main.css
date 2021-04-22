@@ -1,8 +1,93 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   height: 100vh;
   margin: 0;
   font-family: "Poppins", arial;
+}
+
+.overlay {
+  -webkit-clip-path: circle(0%);
+          clip-path: circle(0%);
+  position: fixed;
+  background: #fffeff;
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 2em;
+  right: 0;
+}
+
+.overlay .exit {
+  color: #8bf442;
+  position: absolute;
+  right: 2em;
+  top: 2em;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 0.8em 2em 0.8em 1em;
+  font-size: 0.9em;
+}
+
+.menu ul li a:hover {
+  background: #f0ecf0;
+  border-radius: 0.2em;
+}
+
+.menu-container,
+.menu-container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 0.8em;
+}
+
+.bars-button {
+  background: inherit;
+  border: none;
+  display: block;
+  padding: 0.3em 0.1em;
+  margin: 0px;
+}
+
+.bars-button:hover {
+  color: #8bf442;
+}
+
+p.category {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #8bf442;
 }
 
 ul {
@@ -224,51 +309,11 @@ section {
   }
 }
 
-@supports (animation-timeline: works) {
-  .products-holder {
-    -webkit-animation: 1s linear forwards flip-card;
-            animation: 1s linear forwards flip-card;
-    animation-timeline: flip-timeline;
-    -webkit-transform: rotateX(-120deg);
-            transform: rotateX(-120deg);
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-  }
-  @scroll-timeline flip-timeline {
-    time-range: 3s;
-  }
-  @-webkit-keyframes flip-card {
-    from {
-      opacity: 0;
-      -webkit-transform: rotateX(-120deg);
-              transform: rotateX(-120deg);
-    }
-    to {
-      opacity: 1;
-      -webkit-transform: rotateX(0deg);
-              transform: rotateX(0deg);
-    }
-  }
-  @keyframes flip-card {
-    from {
-      opacity: 0;
-      -webkit-transform: rotateX(-120deg);
-              transform: rotateX(-120deg);
-    }
-    to {
-      opacity: 1;
-      -webkit-transform: rotateX(0deg);
-              transform: rotateX(0deg);
-    }
-  }
-}
-
 .skill-title {
   font-weight: bold;
 }
 
 .featured {
-  position: relative;
   background-color: #1b1b1f;
 }
 
