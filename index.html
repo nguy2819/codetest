@@ -89,6 +89,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
         integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
         crossorigin="anonymous"></script>
@@ -97,9 +98,9 @@
         const button = document.querySelector('.bars-button');
         const overlay = document.querySelector('.overlay');
         const exit = document.querySelector('.exit');
+        let isOpen = false;
 
         var tl = gsap.timeline({ defaults: { duration: 1, ease: Back.easeOut.config(2) } })
-        let isOpen = false;
         tl.paused(true);
         tl.to('.overlay', { clipPath: 'circle(100%)' })
         tl.to('.menu-container', { opacity: 1, y: '30px', stagger: 0.1 }, "-=1")
@@ -126,10 +127,59 @@
             <div class="intro-subheader stagger1">
                 <p>Text Subheader</p>
             </div>
-            <button class="intro-button stagger1">Start here</button>
+            <span class="stagger1">
+                <button class="intro-button">
+                    <span class="intro-button-label">Start here</span>
+                    <span class="intro-button-icon">
+                        <svg class="check-mark" width="44.419" height="36.507" viewBox="0 0 44.419 36.507"><defs></defs><path d="M130.682,218.058l 14.586,17.462,28.295-34.305" transform="translate(-129.915 -200.579)"/></svg>
+                    </span>
+                </button>
+            </span>
+            <p class="intro-p">Awesome</p>
         </div>
         <img src="pictures/Aurora_Render.png" class="right img-header" />
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js" integrity="sha512-0bzaetZStCnsUgbCtGVxftzF/L32PNOnrMlYLXwBOKl8cUjTSSDfJVyyJsNwGoI0iE0WUqni2eEfO35kJjFj5g==" crossorigin="anonymous"></script>
+    <script>
+        gsap.registerPlugin(CSSRulePlugin);
+
+        const tl2 = gsap.timeline({defaults: {ease: Power2.easeOut}})
+        const introbtn = document.querySelector('.intro-button')
+        const rule = CSSRulePlugin.getRule('intro-button::before')
+
+        tl2.to('.intro-button-label', {
+            opacity: 0,
+            height: 0, 
+            position: 'absolute',
+            duration: '.2s'
+        })
+        tl2.to('.intro-button', {
+            borderRadius: '50%',
+            width: '2.5em',
+            height: '2.5em',
+            padding: '25px 25px 25px 25px',
+            ease: 'elastic.out(0.7, 0.3)',
+            duration: '1.2'
+        }, '-=.5s')
+        tl2.to(rule, {
+            borderRadius: '50%'
+        }, '-=1s')
+        tl2.to('.check-mark', {strokeDasharray: '90 103'}, "-=.8")
+        tl2.to('path', {
+            attr: {d: 'M145.8,236.314l16.359-18.148L145.8,200.681'}
+        }, "+=1")
+        tl2.to('.intro-p', {clipPath: 'circle(100% at 50% 50%)', duration: 1.2})
+        tl2.to('.intro-p', {
+              onComplete: () => {
+              window.location.href = '/'
+          }})
+        tl2.pause();
+
+        introbtn.addEventListener('click', () => {
+            tl2.play();
+        })
+    </script>
 
     <section class="products">
         <ul class="products-holder">
@@ -157,7 +207,7 @@
                 Wisdom.
             </p>
             <a href="https://www.churchofjesuschrist.org/study/manual/true-to-the-faith/word-of-wisdom?lang=eng"
-                target="_blank" class="intro-button">Read More</a>
+                target="_blank" class="readmore-button">Read More</a>
         </div>
     </section>
 
