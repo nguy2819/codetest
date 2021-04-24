@@ -2,6 +2,8 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -167,7 +169,7 @@ header ul a:hover {
 }
 
 .intro {
-  background: #1b1b1f;
+  position: relative;
   color: white;
   display: block;
   text-align: center;
@@ -178,28 +180,42 @@ header ul a:hover {
 
 @media only screen and (min-width: 1000px) {
   .intro {
-    height: 90vh;
+    height: 89vh;
     -ms-grid-columns: 66% auto;
         grid-template-columns: 66% auto;
     padding: 0;
-  }
-  .intro .content {
-    background: #1b1b1f;
-    text-align: left;
-  }
-  .intro .content .intro-header {
-    font-size: 3em;
-    line-height: 1.2em;
-  }
-  .intro-subheader {
-    margin: unset;
-  }
-  .img-header {
-    display: unset;
-    margin-left: -50%;
-    margin-top: 35%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: white;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 6em 8em 6em 4em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 5em;
     width: 100%;
+    padding-top: 3em;
+    position: relative;
   }
+  .intro .intro-header {
+    font-size: 2.5em;
+    line-height: 2em;
+  }
+}
+
+.intro-subheader {
+  margin: unset;
+}
+
+.img-header {
+  display: unset;
+  margin-left: -50%;
+  margin-top: 35%;
+  width: 100%;
 }
 
 .intro-subheader {
@@ -249,6 +265,19 @@ header ul a:hover {
   border-radius: inherit;
 }
 
+.intro-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .check-mark {
   position: absolute;
   top: 0.5em;
@@ -271,11 +300,6 @@ header ul a:hover {
 }
 
 @media only screen and (min-width: 800px) {
-  .left {
-    display: -ms-grid;
-    display: grid;
-    place-content: center;
-  }
   .img-header {
     width: 100%;
   }
@@ -597,5 +621,13 @@ section {
 
 #radio4:checked ~ .navigation-auto .auto-btn4 {
   background: #58bd2f;
+}
+
+.webgl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+  z-index: -1;
 }
 /*# sourceMappingURL=main.css.map */
