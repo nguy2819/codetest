@@ -3,12 +3,13 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
+
 //Loader
 const loader = new THREE.TextureLoader()
 const circle = loader.load('pictures/ODC4U.png')
 
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -18,6 +19,25 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.TorusGeometry( 3.5, 1, 16, 100 );
+
+// const verticesOfCube = [
+//     -1,-1,-1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
+//     -1,-1, 1,    1,-1, 1,    1, 1, 1,    -1, 1, 1,
+//     1,-1, -1,    -1,-1, 1,    -1, 1, 1,    1, 1, -1,
+//     -1,-1, -1,    -1,-1, -1,    -1, -1, -1,    1, -1, 1,
+// ];
+
+// const indicesOfFaces = [
+//     2,1,0,    0,3,2,
+//     0,4,7,    7,3,0,
+//     0,1,5,    5,4,0,
+//     1,2,6,    6,5,1,
+//     2,3,7,    7,6,2,
+//     4,5,6,    6,7,4
+// ];
+
+// const geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 4, 6 );
+
 
 const particleGeometry = new THREE.BufferGeometry;
 const particleCnt = 2000;
