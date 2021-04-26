@@ -421,6 +421,10 @@ section {
   width: 90%;
 }
 
+.title-item {
+  margin-bottom: 1em;
+}
+
 .sizes {
   display: -webkit-box;
   display: -ms-flexbox;
